@@ -82,6 +82,7 @@ server.on "message",  (msg, rinfo) ->
 
   else
     session_cache[sess_id] = password
+    #For fortigate firewalls, asks for token code
     send_response 'Access-Challenge',[
       ['Reply-Message', 'Please enter token:'],
       ['Vendor-Specific', 12356, [[15, new Buffer("001")]]]
